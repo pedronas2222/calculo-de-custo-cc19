@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML to JSON Converter</title>
+</head>
+<body>
+    <h1>XML to JSON Converter</h1>
+    
+    <input type="file" id="xmlFileInput" accept=".xml">
+    <button onclick="convertXmlToJson()">Convert</button>
+
+    <pre id="jsonResult"></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
+    <script>
+        function convertXmlToJson() {
+            const fileInput = document.getElementById('xmlFileInput');
+            const jsonResult = document.getElementById('jsonResult');
+
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const xmlData = e.target.result;
+
+                    const x2js = new X2JS();
+                    const jsonObj = x2js.xml_str2json(xmlData);
+
+                    const jsonData = JSON.stringify(jsonObj, null, 2);
+                    jsonResult.textContent = jsonData;
+                };
+
+                reader.readAsText(file);
+            } else {
+                jsonResult.textContent = 'Please select an XML file.';
+            }
+        }
+    </script>
+</body>
+</html>

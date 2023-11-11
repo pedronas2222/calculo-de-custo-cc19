@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Fiscal Detalhada</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>NUM_NOTA_FISCAL_ORIGEM</th>
+                <th>DATA_COMPRA</th>
+                <th>FORNECEDOR</th>
+                <th>ITEM_PRODUTO</th>
+                <th>COD_PRODUTO</th>
+                <th>DESC_PRODUTO</th>
+                <th>UN_PRODUTO</th>
+                <th>VAL_UNI_PRODUTO</th>
+                <th>QUANT_PRODUTO</th>
+                <th>ALIQ_NF_ORIGEM_PRODUTO</th>
+                <th>VALOR_ICMS_ORIGEM</th>
+                <th>VALOR_ICMS_PARA</th>
+                <th>VALOR_A_PAGAR_DIF_ICMS</th>
+                <th>CUSTO_TRANSPORTE</th>
+                <th>CUSTO_TOTAL_PRODUTO</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script>
+        const invoiceData = {
+          "nfeProc": {
+            "NFe": {
+              "infNFe": {
+                "ide": {
+                  "cUF": "43",
+                  "cNF": "00808943",
+                  "natOp": "Venda",
+                  "mod": "55",
+                  "serie": "1",
+                  "nNF": "260632",
+                  "dhEmi": "2023-10-11T16:37:09-03:00",
+                  "dhSaiEnt": "2023-10-11T16:37:09-03:00",
+                  "tpNF": "1",
+                  "idDest": "2",
+                  "cMunFG": "4306767",
+                  "tpImp": "1",
+                  "tpEmis": "1",
+                  "cDV": "0",
+                  "tpAmb": "1",
+                  "finNFe": "1",
+                  "indFinal": "1",
+                  "indPres": "0",
+                  "procEmi": "0",
+                  "verProc": "1.0.0 (Build 0)"
+                },
+                "emit": {
+                  "CNPJ": "02820966000109",
+                  "xNome": "TERACOM TELEMATICA S.A.",
+                  "xFant": "DATACOM",
+                  "enderEmit": {
+                    "xLgr": "RUA AMERICA",
+                    "nro": "1000",
+                    "xBairro": "INDUSTRIAL",
+                    "cMun": "4306767",
+                    "xMun": "ELDORADO DO SUL",
+                    "UF": "RS",
+                    "CEP": "92990000",
+                    "cPais": "1058",
+                    "xPais": "BRASIL",
+                    "fone": "5139333000"
+                  },
+                  "IE": "2670028670",
+                  "CRT": "3"
+                },
+                "dest": {
+                  "CNPJ": "14429925000167",
+                  "xNome": "ISP MAIS TELECOM LTDA",
+                  "enderDest": {
+                    "xLgr": "AVE DAS NACOES",
+                    "nro": "2235",
+                    "xCpl": "ST 004 QD 4 LT 16",
+                    "xBairro": "CENTRO",
+                    "cMun": "1505437",
+                    "xMun": "Ourilandia do Norte",
+                    "UF": "PA",
+                    "CEP": "68390000",
+                    "cPais": "1058",
+                    "xPais": "BRASIL"
+                  },
+                  "indIEDest": "1",
+                  "IE": "153507900"
+                },
+                "det": [
+                  {
+                    "prod": {
+                      "cProd": "800.5088.54",
+                      "cEAN": "SEM GTIN",
+                      "cBarra": "07895999083232",
+                      "xProd": "DM2301 4GT+4GX - Switch de Acesso Ethernet, com 4 portas 10/100/1000Base-T (RJ45)e 4 portas 100Base-FX/1000Base-X (SFP)",
+                      "NCM": "85176234",
+                      "CFOP": "6101",
+                      "uCom": "UN",
+                      "qCom": "18.0000",
+                      "vUnCom": "1083.2183330000",
+                      "vProd": "19497.93",
+                      "cEANTrib": "SEM GTIN",
+                      "cBarraTrib": "07895999083232",
+                      "uTrib": "UN",
+                      "qTrib": "18.0000",
+                      "vUnTrib": "1083.2183330000",
+                      "indTot": "1"
+                    },
+                    "imposto": {
+                      "vTotTrib": "36.34",
+                      "ICMS": {
+                        "ICMS00": {
+                          "orig": "4",
+                          "CST": "00",
+                          "modBC": "3",
+                          "vBC": "21398.98",
+                          "pICMS": "7.0000",
+                          "vICMS": "1497.93"
+                        }
+                      },
+                      "IPI": {
+                        "cEnq": "999",
+                        "IPITrib": {
+                          "CST": "50",
+                          "vBC": "19497.93",
+                          "pIPI": "9.7500",
+                          "vIPI": "1901.05"
+                        }
+                      },
+                      "PIS": {
+                        "PISAliq": {
+                          "CST": "01",
+                          "vBC": "18000.00",
+                          "pPIS": "1.6500",
+                          "vPIS": "297.00"
+                        }
+                      },
+                      "COFINS": {
+                        "COFINSAliq": {
+                          "CST": "01",
+                          "vBC": "18000.00",
+                          "pCOFINS": "7.6000",
+                          "vCOFINS": "1368.00"
+                        }
+                      }
+                    },
+                    "infAdProd": "FINAME: 3253173 N de Serie: 6186849 a 6186851, 6186853 a 6186867",
+                    "_nItem": "1"
+                  },
+                  {
+                    "prod": {
+                      "cProd": "800.5088.55",
+                      "cEAN": "SEM GTIN",
+                      "cBarra": "07895999083323",
+                      "xProd": "Produto teste de desenvolvimento",
+                      "NCM": "85176234",
+                      "CFOP": "6101",
+                      "uCom": "UN",
+                      "qCom": "18.0000",
+                      "vUnCom": "1083.2183330000",
+                      "vProd": "19497.93",
+                      "cEANTrib": "SEM GTIN",
+                      "cBarraTrib": "07895999083232",
+                      "uTrib": "UN",
+                      "qTrib": "18.0000",
+                      "vUnTrib": "1083.2183330000",
+                      "indTot": "1"
+                    },
+                    "imposto": {
+                      "vTotTrib": "36.34",
+                      "ICMS": {
+                        "ICMS00": {
+                          "orig": "4",
+                          "CST": "00",
+                          "modBC": "3",
+                          "vBC": "21398.98",
+                          "pICMS": "7.0000",
+                          "vICMS": "1497.93"
+                        }
+                      },
+                      "IPI": {
+                        "cEnq": "999",
+                        "IPITrib": {
+                          "CST": "50",
+                          "vBC": "19497.93",
+                          "pIPI": "9.7500",
+                          "vIPI": "1901.05"
+                        }
+                      },
+                      "PIS": {
+                        "PISAliq": {
+                          "CST": "01",
+                          "vBC": "18000.00",
+                          "pPIS": "1.6500",
+                          "vPIS": "297.00"
+                        }
+                      },
+                      "COFINS": {
+                        "COFINSAliq": {
+                          "CST": "01",
+                          "vBC": "18000.00",
+                          "pCOFINS": "7.6000",
+                          "vCOFINS": "1368.00"
+                        }
+                      }
+                    },
+                    "infAdProd": "FINAME: 3253173 N de Serie: 6186849 a 6186851, 6186853 a 6186867",
+                    "_nItem": "2"
+                  },
+                  {
+                    "prod": {
+                      "cProd": "800.5088.55",
+                      "cEAN": "SEM GTIN",
+                      "cBarra": "07895999083323",
+                      "xProd": "Produto teste de desenvolvimento",
+                      "NCM": "85176234",
+                      "CFOP": "6101",
+                      "uCom": "UN",
+                      "qCom": "18.0000",
+                      "vUnCom": "1083.2183330000",
+                      "vProd": "19497.93",
+                      "cEANTrib": "SEM GTIN",
+                      "cBarraTrib": "07895999083232",
+                      "uTrib": "UN",
+                      "qTrib": "18.0000",
+                      "vUnTrib": "1083.2183330000",
+                      "indTot": "1"
+                    },
+                    "imposto": {
+                      "vTotTrib": "36.34",
+                      "ICMS": {
+                        "ICMS00": {
+                          "orig": "4",
+                          "CST": "00",
+                          "modBC": "3",
+                          "vBC": "21398.98",
+                          "pICMS": "7.0000",
+                          "vICMS": "1497.93"
+                        }
+                      },
+                      "IPI": {
+                        "cEnq": "999",
+                        "IPITrib": {
+                          "CST": "50",
+                          "vBC": "19497.93",
+                          "pIPI": "9.7500",
+                          "vIPI": "1901.05"
+                        }
+                      },
+                      "PIS": {
+                        "PISAliq": {
+                          "CST": "01",
+                          "vBC": "18000.00",
+                          "pPIS": "1.6500",
+                          "vPIS": "297.00"
+                        }
+                      },
+                      "COFINS": {
+                        "COFINSAliq": {
+                          "CST": "01",
+                          "vBC": "18000.00",
+                          "pCOFINS": "7.6000",
+                          "vCOFINS": "1368.00"
+                        }
+                      }
+                    },
+                    "infAdProd": "FINAME: 3253173 N de Serie: 6186849 a 6186851, 6186853 a 6186867",
+                    "_nItem": "3"
+                  }
+                ],
+                "total": {
+                  "ICMSTot": {
+                    "vBC": "21398.98",
+                    "vICMS": "1497.93",
+                    "vICMSDeson": "0.00",
+                    "vFCP": "0.00",
+                    "vBCST": "0.00",
+                    "vST": "0.00",
+                    "vFCPST": "0.00",
+                    "vFCPSTRet": "0.00",
+                    "vProd": "19497.93",
+                    "vFrete": "0.00",
+                    "vSeg": "0.00",
+                    "vDesc": "0.00",
+                    "vII": "0.00",
+                    "vIPI": "1901.05",
+                    "vIPIDevol": "0.00",
+                    "vPIS": "297.00",
+                    "vCOFINS": "1368.00",
+                    "vOutro": "0.00",
+                    "vNF": "21398.98",
+                    "vTotTrib": "36.34"
+                  }
+                },
+                "transp": {
+                  "modFrete": "0",
+                  "transporta": {
+                    "CNPJ": "94001641000104",
+                    "xNome": ".BRINGER DO BRASIL AGENC CARGAS NAC E INT LTDA",
+                    "IE": "1770165808",
+                    "xEnder": "AV CRUZEIRO",
+                    "xMun": "Cachoeirinha",
+                    "UF": "RS"
+                  },
+                  "vol": {
+                    "qVol": "3",
+                    "esp": "Volume (s)",
+                    "pesoL": "24.840",
+                    "pesoB": "28.080"
+                  }
+                },
+                "cobr": {
+                  "fat": {
+                    "nFat": "260632",
+                    "vOrig": "21398.98",
+                    "vDesc": "0.00",
+                    "vLiq": "21398.98"
+                  },
+                  "dup": [
+                    {
+                      "nDup": "001",
+                      "dVenc": "2023-11-10",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "002",
+                      "dVenc": "2023-12-11",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "003",
+                      "dVenc": "2024-01-09",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "004",
+                      "dVenc": "2024-02-08",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "005",
+                      "dVenc": "2024-03-11",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "006",
+                      "dVenc": "2024-04-08",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "007",
+                      "dVenc": "2024-05-08",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "008",
+                      "dVenc": "2024-06-07",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "009",
+                      "dVenc": "2024-07-08",
+                      "vDup": "2139.90"
+                    },
+                    {
+                      "nDup": "010",
+                      "dVenc": "2024-08-06",
+                      "vDup": "2139.88"
+                    }
+                  ]
+                },
+                "pag": {
+                  "detPag": {
+                    "tPag": "15",
+                    "vPag": "21398.98"
+                  }
+                },
+                "infAdic": {
+                  "infCpl": "Pedido gerado a partir da proposta nro 951423 Revisao E - PC Pedido de Compra: PRPT 951423 - Email 20/09 Pedido DATACOM: 230382 Garantia: 12 meses Local de entrega: AVE DAS NACOES , 2235. ST 004 QD 4 LT 16 - CENTRO - Ourilandia do Norte, PA - 68.390-000 Entrega em horario comercial Conforme PPB, regulado pela Lei 8.248/91 e Reconh. Nacional, regulada pela Port. 950/06 - Port. MCT n 3521 de 07/07/17 e Port. MCT/MDIC/MF n 825 de 14/12/01 Finalidade de Aquisicao: Consumidor Final MODAL: Aereo-redespacho Valor aproximado dos Tributos: R$ 36,34. Fonte IBPT/empresometro.com.br Versao 23.2.D."
+                },
+                "compra": {
+                  "xPed": "PRPT 951423 - Email 20/09"
+                },
+                "_versao": "4.00",
+                "_Id": "NFe43231002820966000109550010002606321008089430"
+              },
+              "Signature": {
+                "SignedInfo": {
+                  "CanonicalizationMethod": {
+                    "_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+                  },
+                  "SignatureMethod": {
+                    "_Algorithm": "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+                  },
+                  "Reference": {
+                    "Transforms": {
+                      "Transform": [
+                        {
+                          "_Algorithm": "http://www.w3.org/2000/09/xmldsig#enveloped-signature"
+                        },
+                        {
+                          "_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+                        }
+                      ]
+                    },
+                    "DigestMethod": {
+                      "_Algorithm": "http://www.w3.org/2000/09/xmldsig#sha1"
+                    },
+                    "DigestValue": "K6aud8/j8glg3FbgIkuDe5KwB/w=",
+                    "_URI": "#NFe43231002820966000109550010002606321008089430"
+                  }
+                },
+                "SignatureValue": "cGSW2/Pjym4IV9I5eHWIjzOiz+2Hs3VpmccOix9+yoV2qiOEDYVUqisqQU+CGAnW4TzOGFOeWGej+e4FXlq4qrY/6TSf8rvC1EyD3BsBpxX8ciGHvJGigTUd10ihjSn25UcNU3vT60HEMD7pb3lTdv3DokeG5z4LWYBG2lyn5951uE/zq2twSVUOzaI/bSMPSfg+46YyouTDvbAFz5IDIqQXsbqY+Tuywl6q+QsYVQ1Y4xMc2SvXpYx+efICCujkb/B/Ne/Rpew7spul+275DDLVEkWPGzqGXeoQnYb3IKaVzcEooPwfyp+LQ5eBEHN9zTJ/SqRROIVu2JkHROg9nw==",
+                "KeyInfo": {
+                  "X509Data": {
+                    "X509Certificate": "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"
+                  }
+                },
+                "_xmlns": "http://www.w3.org/2000/09/xmldsig#"
+              },
+              "_xmlns": "http://www.portalfiscal.inf.br/nfe"
+            },
+            "protNFe": {
+              "infProt": {
+                "tpAmb": "1",
+                "verAplic": "RS202308290810",
+                "chNFe": "43231002820966000109550010002606321008089430",
+                "dhRecbto": "2023-10-11T16:37:11-03:00",
+                "nProt": "143230233967454",
+                "digVal": "K6aud8/j8glg3FbgIkuDe5KwB/w=",
+                "cStat": "100",
+                "xMotivo": "Autorizado o uso da NF-e"
+              },
+              "_versao": "4.00"
+            },
+            "_xmlns": "http://www.portalfiscal.inf.br/nfe",
+            "_versao": "4.00"
+          }
+        };
+
+        // Preencher informações da tabela
+        const tableBody = document.getElementById('tableBody');
+        invoiceData.nfeProc.NFe.infNFe.det.forEach((det, index) => {
+            const produto = det.prod;
+            const imposto = det.imposto.ICMS.ICMS00;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${invoiceData.nfeProc.NFe.infNFe.ide.nNF}</td>
+                <td>${invoiceData.nfeProc.NFe.infNFe.ide.dhEmi}</td>
+                <td>${invoiceData.nfeProc.NFe.infNFe.emit.xNome}</td>
+                <td>${index + 1}</td>
+                <td>${produto.cProd}</td>
+                <td>${produto.xProd}</td>
+                <td>${produto.uCom}</td>
+                <td>${produto.vUnCom}</td>
+                <td>${produto.qCom}</td>
+                <td>${imposto.pICMS}</td>
+                <td>${imposto.vICMS}</td>
+                <td>${produto.vProd * 0.19}</td>
+                <td>${imposto.vICMS - (produto.vProd * 0.19)}</td>
+                <td>Calcular</td>
+                <td>Calcular</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
