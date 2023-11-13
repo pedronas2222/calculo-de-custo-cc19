@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<form id="produtoForm">
+    <label for="xProd">Descrição do Produto:</label>
+    <input type="text" id="xProd" name="xProd" required>
+
+    <label for="uCom">Unidade de Medida:</label>
+    <input type="text" id="uCom" name="uCom" required>
+
+    <label for="qCom">Quantidade:</label>
+    <input type="number" id="qCom" name="qCom" required>
+
+    <label for="vUnCom">Valor Unitário:</label>
+    <input type="number" id="vUnCom" name="vUnCom" required>
+
+    <label for="vProd">Valor Líquido:</label>
+    <input type="number" id="vProd" name="vProd" disabled>
+
+    <label for="vBC">Base de Cálculo ICMS:</label>
+    <input type="number" id="vBC" name="vBC" disabled>
+
+    <label for="vICMS">Valor ICMS:</label>
+    <input type="number" id="vICMS" name="vICMS" disabled>
+
+    <label for="vIPI">Valor IPI:</label>
+    <input type="number" id="vIPI" name="vIPI" disabled>
+
+    <label for="pIPI">Porcentagem IPI:</label>
+    <input type="number" id="pIPI" name="pIPI" required>
+
+    <label for="pICMS">Porcentagem ICMS:</label>
+    <input type="number" id="pICMS" name="pICMS" required>
+
+    <button type="button" onclick="calcularValores()">Calcular</button>
+</form>
+
+<script>
+    function calcularValores() {
+        // Obter os valores dos campos
+        var qCom = parseFloat(document.getElementById('qCom').value);
+        var vUnCom = parseFloat(document.getElementById('vUnCom').value);
+        var pIPI = parseFloat(document.getElementById('pIPI').value);
+        var pICMS = parseFloat(document.getElementById('pICMS').value);
+
+        // Calcular os valores
+        var vProd = qCom * vUnCom;
+        var vBC = vProd;
+        var vICMS = (pICMS / 100) * vBC;
+        var vIPI = (pIPI / 100) * vProd;
+
+        // Atualizar os campos desabilitados
+        document.getElementById('vProd').value = vProd.toFixed(2);
+        document.getElementById('vBC').value = vBC.toFixed(2);
+        document.getElementById('vICMS').value = vICMS.toFixed(2);
+        document.getElementById('vIPI').value = vIPI.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

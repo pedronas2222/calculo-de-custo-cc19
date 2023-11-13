@@ -29,421 +29,665 @@
         <tbody id="tableBody"></tbody>
     </table>
 
+    <button onclick="saveToDatabase()">Salvar no Banco de Dados</button>
+
     <script>
         const invoiceData = {
-          "nfeProc": {
-            "NFe": {
-              "infNFe": {
-                "ide": {
-                  "cUF": "43",
-                  "cNF": "00808943",
-                  "natOp": "Venda",
-                  "mod": "55",
-                  "serie": "1",
-                  "nNF": "260632",
-                  "dhEmi": "2023-10-11T16:37:09-03:00",
-                  "dhSaiEnt": "2023-10-11T16:37:09-03:00",
-                  "tpNF": "1",
-                  "idDest": "2",
-                  "cMunFG": "4306767",
-                  "tpImp": "1",
-                  "tpEmis": "1",
-                  "cDV": "0",
-                  "tpAmb": "1",
-                  "finNFe": "1",
-                  "indFinal": "1",
-                  "indPres": "0",
-                  "procEmi": "0",
-                  "verProc": "1.0.0 (Build 0)"
-                },
-                "emit": {
-                  "CNPJ": "02820966000109",
-                  "xNome": "TERACOM TELEMATICA S.A.",
-                  "xFant": "DATACOM",
-                  "enderEmit": {
-                    "xLgr": "RUA AMERICA",
-                    "nro": "1000",
-                    "xBairro": "INDUSTRIAL",
-                    "cMun": "4306767",
-                    "xMun": "ELDORADO DO SUL",
-                    "UF": "RS",
-                    "CEP": "92990000",
-                    "cPais": "1058",
-                    "xPais": "BRASIL",
-                    "fone": "5139333000"
-                  },
-                  "IE": "2670028670",
-                  "CRT": "3"
-                },
-                "dest": {
-                  "CNPJ": "14429925000167",
-                  "xNome": "ISP MAIS TELECOM LTDA",
-                  "enderDest": {
-                    "xLgr": "AVE DAS NACOES",
-                    "nro": "2235",
-                    "xCpl": "ST 004 QD 4 LT 16",
-                    "xBairro": "CENTRO",
-                    "cMun": "1505437",
-                    "xMun": "Ourilandia do Norte",
-                    "UF": "PA",
-                    "CEP": "68390000",
-                    "cPais": "1058",
-                    "xPais": "BRASIL"
-                  },
-                  "indIEDest": "1",
-                  "IE": "153507900"
-                },
-                "det": [
-                  {
-                    "prod": {
-                      "cProd": "800.5088.54",
-                      "cEAN": "SEM GTIN",
-                      "cBarra": "07895999083232",
-                      "xProd": "DM2301 4GT+4GX - Switch de Acesso Ethernet, com 4 portas 10/100/1000Base-T (RJ45)e 4 portas 100Base-FX/1000Base-X (SFP)",
-                      "NCM": "85176234",
-                      "CFOP": "6101",
-                      "uCom": "UN",
-                      "qCom": "18.0000",
-                      "vUnCom": "1083.2183330000",
-                      "vProd": "19497.93",
-                      "cEANTrib": "SEM GTIN",
-                      "cBarraTrib": "07895999083232",
-                      "uTrib": "UN",
-                      "qTrib": "18.0000",
-                      "vUnTrib": "1083.2183330000",
-                      "indTot": "1"
-                    },
-                    "imposto": {
-                      "vTotTrib": "36.34",
-                      "ICMS": {
-                        "ICMS00": {
-                          "orig": "4",
-                          "CST": "00",
-                          "modBC": "3",
-                          "vBC": "21398.98",
-                          "pICMS": "7.0000",
-                          "vICMS": "1497.93"
-                        }
-                      },
-                      "IPI": {
-                        "cEnq": "999",
-                        "IPITrib": {
-                          "CST": "50",
-                          "vBC": "19497.93",
-                          "pIPI": "9.7500",
-                          "vIPI": "1901.05"
-                        }
-                      },
-                      "PIS": {
-                        "PISAliq": {
-                          "CST": "01",
-                          "vBC": "18000.00",
-                          "pPIS": "1.6500",
-                          "vPIS": "297.00"
-                        }
-                      },
-                      "COFINS": {
-                        "COFINSAliq": {
-                          "CST": "01",
-                          "vBC": "18000.00",
-                          "pCOFINS": "7.6000",
-                          "vCOFINS": "1368.00"
-                        }
-                      }
-                    },
-                    "infAdProd": "FINAME: 3253173 N de Serie: 6186849 a 6186851, 6186853 a 6186867",
-                    "_nItem": "1"
-                  },
-                  {
-                    "prod": {
-                      "cProd": "800.5088.55",
-                      "cEAN": "SEM GTIN",
-                      "cBarra": "07895999083323",
-                      "xProd": "Produto teste de desenvolvimento",
-                      "NCM": "85176234",
-                      "CFOP": "6101",
-                      "uCom": "UN",
-                      "qCom": "18.0000",
-                      "vUnCom": "1083.2183330000",
-                      "vProd": "19497.93",
-                      "cEANTrib": "SEM GTIN",
-                      "cBarraTrib": "07895999083232",
-                      "uTrib": "UN",
-                      "qTrib": "18.0000",
-                      "vUnTrib": "1083.2183330000",
-                      "indTot": "1"
-                    },
-                    "imposto": {
-                      "vTotTrib": "36.34",
-                      "ICMS": {
-                        "ICMS00": {
-                          "orig": "4",
-                          "CST": "00",
-                          "modBC": "3",
-                          "vBC": "21398.98",
-                          "pICMS": "7.0000",
-                          "vICMS": "1497.93"
-                        }
-                      },
-                      "IPI": {
-                        "cEnq": "999",
-                        "IPITrib": {
-                          "CST": "50",
-                          "vBC": "19497.93",
-                          "pIPI": "9.7500",
-                          "vIPI": "1901.05"
-                        }
-                      },
-                      "PIS": {
-                        "PISAliq": {
-                          "CST": "01",
-                          "vBC": "18000.00",
-                          "pPIS": "1.6500",
-                          "vPIS": "297.00"
-                        }
-                      },
-                      "COFINS": {
-                        "COFINSAliq": {
-                          "CST": "01",
-                          "vBC": "18000.00",
-                          "pCOFINS": "7.6000",
-                          "vCOFINS": "1368.00"
-                        }
-                      }
-                    },
-                    "infAdProd": "FINAME: 3253173 N de Serie: 6186849 a 6186851, 6186853 a 6186867",
-                    "_nItem": "2"
-                  },
-                  {
-                    "prod": {
-                      "cProd": "800.5088.55",
-                      "cEAN": "SEM GTIN",
-                      "cBarra": "07895999083323",
-                      "xProd": "Produto teste de desenvolvimento",
-                      "NCM": "85176234",
-                      "CFOP": "6101",
-                      "uCom": "UN",
-                      "qCom": "18.0000",
-                      "vUnCom": "1083.2183330000",
-                      "vProd": "19497.93",
-                      "cEANTrib": "SEM GTIN",
-                      "cBarraTrib": "07895999083232",
-                      "uTrib": "UN",
-                      "qTrib": "18.0000",
-                      "vUnTrib": "1083.2183330000",
-                      "indTot": "1"
-                    },
-                    "imposto": {
-                      "vTotTrib": "36.34",
-                      "ICMS": {
-                        "ICMS00": {
-                          "orig": "4",
-                          "CST": "00",
-                          "modBC": "3",
-                          "vBC": "21398.98",
-                          "pICMS": "7.0000",
-                          "vICMS": "1497.93"
-                        }
-                      },
-                      "IPI": {
-                        "cEnq": "999",
-                        "IPITrib": {
-                          "CST": "50",
-                          "vBC": "19497.93",
-                          "pIPI": "9.7500",
-                          "vIPI": "1901.05"
-                        }
-                      },
-                      "PIS": {
-                        "PISAliq": {
-                          "CST": "01",
-                          "vBC": "18000.00",
-                          "pPIS": "1.6500",
-                          "vPIS": "297.00"
-                        }
-                      },
-                      "COFINS": {
-                        "COFINSAliq": {
-                          "CST": "01",
-                          "vBC": "18000.00",
-                          "pCOFINS": "7.6000",
-                          "vCOFINS": "1368.00"
-                        }
-                      }
-                    },
-                    "infAdProd": "FINAME: 3253173 N de Serie: 6186849 a 6186851, 6186853 a 6186867",
-                    "_nItem": "3"
-                  }
-                ],
-                "total": {
-                  "ICMSTot": {
-                    "vBC": "21398.98",
-                    "vICMS": "1497.93",
-                    "vICMSDeson": "0.00",
-                    "vFCP": "0.00",
-                    "vBCST": "0.00",
-                    "vST": "0.00",
-                    "vFCPST": "0.00",
-                    "vFCPSTRet": "0.00",
-                    "vProd": "19497.93",
-                    "vFrete": "0.00",
-                    "vSeg": "0.00",
-                    "vDesc": "0.00",
-                    "vII": "0.00",
-                    "vIPI": "1901.05",
-                    "vIPIDevol": "0.00",
-                    "vPIS": "297.00",
-                    "vCOFINS": "1368.00",
-                    "vOutro": "0.00",
-                    "vNF": "21398.98",
-                    "vTotTrib": "36.34"
-                  }
-                },
-                "transp": {
-                  "modFrete": "0",
-                  "transporta": {
-                    "CNPJ": "94001641000104",
-                    "xNome": ".BRINGER DO BRASIL AGENC CARGAS NAC E INT LTDA",
-                    "IE": "1770165808",
-                    "xEnder": "AV CRUZEIRO",
-                    "xMun": "Cachoeirinha",
-                    "UF": "RS"
-                  },
-                  "vol": {
-                    "qVol": "3",
-                    "esp": "Volume (s)",
-                    "pesoL": "24.840",
-                    "pesoB": "28.080"
-                  }
-                },
-                "cobr": {
-                  "fat": {
-                    "nFat": "260632",
-                    "vOrig": "21398.98",
-                    "vDesc": "0.00",
-                    "vLiq": "21398.98"
-                  },
-                  "dup": [
-                    {
-                      "nDup": "001",
-                      "dVenc": "2023-11-10",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "002",
-                      "dVenc": "2023-12-11",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "003",
-                      "dVenc": "2024-01-09",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "004",
-                      "dVenc": "2024-02-08",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "005",
-                      "dVenc": "2024-03-11",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "006",
-                      "dVenc": "2024-04-08",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "007",
-                      "dVenc": "2024-05-08",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "008",
-                      "dVenc": "2024-06-07",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "009",
-                      "dVenc": "2024-07-08",
-                      "vDup": "2139.90"
-                    },
-                    {
-                      "nDup": "010",
-                      "dVenc": "2024-08-06",
-                      "vDup": "2139.88"
-                    }
-                  ]
-                },
-                "pag": {
-                  "detPag": {
-                    "tPag": "15",
-                    "vPag": "21398.98"
-                  }
-                },
-                "infAdic": {
-                  "infCpl": "Pedido gerado a partir da proposta nro 951423 Revisao E - PC Pedido de Compra: PRPT 951423 - Email 20/09 Pedido DATACOM: 230382 Garantia: 12 meses Local de entrega: AVE DAS NACOES , 2235. ST 004 QD 4 LT 16 - CENTRO - Ourilandia do Norte, PA - 68.390-000 Entrega em horario comercial Conforme PPB, regulado pela Lei 8.248/91 e Reconh. Nacional, regulada pela Port. 950/06 - Port. MCT n 3521 de 07/07/17 e Port. MCT/MDIC/MF n 825 de 14/12/01 Finalidade de Aquisicao: Consumidor Final MODAL: Aereo-redespacho Valor aproximado dos Tributos: R$ 36,34. Fonte IBPT/empresometro.com.br Versao 23.2.D."
-                },
-                "compra": {
-                  "xPed": "PRPT 951423 - Email 20/09"
-                },
-                "_versao": "4.00",
-                "_Id": "NFe43231002820966000109550010002606321008089430"
-              },
-              "Signature": {
-                "SignedInfo": {
-                  "CanonicalizationMethod": {
-                    "_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
-                  },
-                  "SignatureMethod": {
-                    "_Algorithm": "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
-                  },
-                  "Reference": {
-                    "Transforms": {
-                      "Transform": [
-                        {
-                          "_Algorithm": "http://www.w3.org/2000/09/xmldsig#enveloped-signature"
-                        },
-                        {
-                          "_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
-                        }
-                      ]
-                    },
-                    "DigestMethod": {
-                      "_Algorithm": "http://www.w3.org/2000/09/xmldsig#sha1"
-                    },
-                    "DigestValue": "K6aud8/j8glg3FbgIkuDe5KwB/w=",
-                    "_URI": "#NFe43231002820966000109550010002606321008089430"
-                  }
-                },
-                "SignatureValue": "cGSW2/Pjym4IV9I5eHWIjzOiz+2Hs3VpmccOix9+yoV2qiOEDYVUqisqQU+CGAnW4TzOGFOeWGej+e4FXlq4qrY/6TSf8rvC1EyD3BsBpxX8ciGHvJGigTUd10ihjSn25UcNU3vT60HEMD7pb3lTdv3DokeG5z4LWYBG2lyn5951uE/zq2twSVUOzaI/bSMPSfg+46YyouTDvbAFz5IDIqQXsbqY+Tuywl6q+QsYVQ1Y4xMc2SvXpYx+efICCujkb/B/Ne/Rpew7spul+275DDLVEkWPGzqGXeoQnYb3IKaVzcEooPwfyp+LQ5eBEHN9zTJ/SqRROIVu2JkHROg9nw==",
-                "KeyInfo": {
-                  "X509Data": {
-                    "X509Certificate": "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"
-                  }
-                },
-                "_xmlns": "http://www.w3.org/2000/09/xmldsig#"
-              },
-              "_xmlns": "http://www.portalfiscal.inf.br/nfe"
-            },
-            "protNFe": {
-              "infProt": {
+        "nfeProc": {
+          "NFe": {
+            "infNFe": {
+              "ide": {
+                "cUF": "43",
+                "cNF": "00807353",
+                "natOp": "Venda",
+                "mod": "55",
+                "serie": "1",
+                "nNF": "259813",
+                "dhEmi": "2023-09-21T14:26:20-03:00",
+                "dhSaiEnt": "2023-09-21T14:26:20-03:00",
+                "tpNF": "1",
+                "idDest": "2",
+                "cMunFG": "4306767",
+                "tpImp": "1",
+                "tpEmis": "1",
+                "cDV": "7",
                 "tpAmb": "1",
-                "verAplic": "RS202308290810",
-                "chNFe": "43231002820966000109550010002606321008089430",
-                "dhRecbto": "2023-10-11T16:37:11-03:00",
-                "nProt": "143230233967454",
-                "digVal": "K6aud8/j8glg3FbgIkuDe5KwB/w=",
-                "cStat": "100",
-                "xMotivo": "Autorizado o uso da NF-e"
+                "finNFe": "1",
+                "indFinal": "1",
+                "indPres": "0",
+                "procEmi": "0",
+                "verProc": "1.0.0 (Build 0)"
               },
-              "_versao": "4.00"
+              "emit": {
+                "CNPJ": "02820966000109",
+                "xNome": "TERACOM TELEMATICA S.A.",
+                "xFant": "DATACOM",
+                "enderEmit": {
+                  "xLgr": "RUA AMERICA",
+                  "nro": "1000",
+                  "xBairro": "INDUSTRIAL",
+                  "cMun": "4306767",
+                  "xMun": "ELDORADO DO SUL",
+                  "UF": "RS",
+                  "CEP": "92990000",
+                  "cPais": "1058",
+                  "xPais": "BRASIL",
+                  "fone": "5139333000"
+                },
+                "IE": "2670028670",
+                "CRT": "3"
+              },
+              "dest": {
+                "CNPJ": "14429925000167",
+                "xNome": "ISP MAIS TELECOM LTDA",
+                "enderDest": {
+                  "xLgr": "AVE DAS NACOES",
+                  "nro": "2235",
+                  "xCpl": "ST 004 QD 4 LT 16",
+                  "xBairro": "CENTRO",
+                  "cMun": "1505437",
+                  "xMun": "Ourilandia do Norte",
+                  "UF": "PA",
+                  "CEP": "68390000",
+                  "cPais": "1058",
+                  "xPais": "BRASIL"
+                },
+                "indIEDest": "1",
+                "IE": "153507900"
+              },
+              "det": [
+                {
+                  "prod": {
+                    "cProd": "800.5274.51",
+                    "cEAN": "SEM GTIN",
+                    "cBarra": "07895999091329",
+                    "xProd": "DM4618 OLT - Concentrador de linhas de assinantes (OLT), com 32x GPON (SFP), 2x 100G (QSFP28), 4x 25/10G (SFP28/SFP+)",
+                    "NCM": "85176214",
+                    "CFOP": "6101",
+                    "uCom": "PC",
+                    "qCom": "1.0000",
+                    "vUnCom": "31292.0100000000",
+                    "vProd": "31292.01",
+                    "cEANTrib": "SEM GTIN",
+                    "cBarraTrib": "07895999091329",
+                    "uTrib": "PC",
+                    "qTrib": "1.0000",
+                    "vUnTrib": "31292.0100000000",
+                    "indTot": "1"
+                  },
+                  "imposto": {
+                    "vTotTrib": "36.34",
+                    "ICMS": {
+                      "ICMS00": {
+                        "orig": "4",
+                        "CST": "00",
+                        "modBC": "3",
+                        "vBC": "34342.98",
+                        "pICMS": "7.0000",
+                        "vICMS": "2404.01"
+                      }
+                    },
+                    "IPI": {
+                      "cEnq": "999",
+                      "IPITrib": {
+                        "CST": "50",
+                        "vBC": "31292.01",
+                        "pIPI": "9.7500",
+                        "vIPI": "3050.97"
+                      }
+                    },
+                    "PIS": {
+                      "PISAliq": {
+                        "CST": "01",
+                        "vBC": "28888.00",
+                        "pPIS": "1.6500",
+                        "vPIS": "476.65"
+                      }
+                    },
+                    "COFINS": {
+                      "COFINSAliq": {
+                        "CST": "01",
+                        "vBC": "28888.00",
+                        "pCOFINS": "7.6000",
+                        "vCOFINS": "2195.49"
+                      }
+                    }
+                  },
+                  "infAdProd": "FINAME: 4032981 N de Serie: 6073439",
+                  "_nItem": "1"
+                },
+                {
+                  "prod": {
+                    "cProd": "820.0024.00",
+                    "cEAN": "SEM GTIN",
+                    "cBarra": "07895999098366",
+                    "xProd": "PSU 600 DC-F - Fonte de alimentacao DC, entrada -48 a -60VDC, 600W de potencia",
+                    "NCM": "85044030",
+                    "CFOP": "6101",
+                    "uCom": "PC",
+                    "qCom": "2.0000",
+                    "vUnCom": "1854.2700000000",
+                    "vProd": "3708.54",
+                    "cEANTrib": "SEM GTIN",
+                    "cBarraTrib": "07895999098366",
+                    "uTrib": "PC",
+                    "qTrib": "2.0000",
+                    "vUnTrib": "1854.2700000000",
+                    "indTot": "1"
+                  },
+                  "imposto": {
+                    "vTotTrib": "38.16",
+                    "ICMS": {
+                      "ICMS00": {
+                        "orig": "0",
+                        "CST": "00",
+                        "modBC": "3",
+                        "vBC": "4264.82",
+                        "pICMS": "7.0000",
+                        "vICMS": "298.54"
+                      }
+                    },
+                    "IPI": {
+                      "cEnq": "999",
+                      "IPITrib": {
+                        "CST": "50",
+                        "vBC": "3708.54",
+                        "pIPI": "15.0000",
+                        "vIPI": "556.28"
+                      }
+                    },
+                    "PIS": {
+                      "PISAliq": {
+                        "CST": "01",
+                        "vBC": "3410.00",
+                        "pPIS": "1.6500",
+                        "vPIS": "56.27"
+                      }
+                    },
+                    "COFINS": {
+                      "COFINSAliq": {
+                        "CST": "01",
+                        "vBC": "3410.00",
+                        "pCOFINS": "7.6000",
+                        "vCOFINS": "259.16"
+                      }
+                    }
+                  },
+                  "infAdProd": "N de Serie: 5935452, 5935500",
+                  "_nItem": "2"
+                },
+                {
+                  "prod": {
+                    "cProd": "377.0231.00",
+                    "cEAN": "SEM GTIN",
+                    "cBarra": "07895999089111",
+                    "xProd": "Modulo optico tipo SFP, uma fibra, [G.984.2 C++/2.48G] [DD/DFB/-/OP:6/RP:-32/20km]",
+                    "NCM": "85176259",
+                    "CFOP": "6101",
+                    "uCom": "PC",
+                    "qCom": "32.0000",
+                    "vUnCom": "192.4959380000",
+                    "vProd": "6159.87",
+                    "cEANTrib": "SEM GTIN",
+                    "cBarraTrib": "07895999089111",
+                    "uTrib": "PC",
+                    "qTrib": "32.0000",
+                    "vUnTrib": "192.4959380000",
+                    "indTot": "1",
+                    "nFCI": "55160E20-2EAF-4475-B534-D7EABDF97E25"
+                  },
+                  "imposto": {
+                    "vTotTrib": "38.16",
+                    "ICMS": {
+                      "ICMS00": {
+                        "orig": "5",
+                        "CST": "00",
+                        "modBC": "3",
+                        "vBC": "7083.85",
+                        "pICMS": "7.0000",
+                        "vICMS": "495.87"
+                      }
+                    },
+                    "IPI": {
+                      "cEnq": "999",
+                      "IPITrib": {
+                        "CST": "50",
+                        "vBC": "6159.87",
+                        "pIPI": "15.0000",
+                        "vIPI": "923.98"
+                      }
+                    },
+                    "PIS": {
+                      "PISAliq": {
+                        "CST": "01",
+                        "vBC": "5664.00",
+                        "pPIS": "1.6500",
+                        "vPIS": "93.46"
+                      }
+                    },
+                    "COFINS": {
+                      "COFINSAliq": {
+                        "CST": "01",
+                        "vBC": "5664.00",
+                        "pCOFINS": "7.6000",
+                        "vCOFINS": "430.46"
+                      }
+                    }
+                  },
+                  "infAdProd": "N de Serie: 6139384, 6139390, 6139405, 6139424, 6139435, 6139535, 6139539, 6139578 a 6139579, 6139591, 6139595, 6139610, 6139624, 6139629, 6139642 a 6139644, 6139648, 6139661, 6139673, 6139680, 6139684, 6139688, 6139693, 6139699, 6139701, 6139729, 6139735, 6139745 a 6139746, 6139755, 6139759",
+                  "_nItem": "3"
+                },
+                {
+                  "prod": {
+                    "cProd": "800.5304.54",
+                    "cEAN": "SEM GTIN",
+                    "cBarra": "07895999094900",
+                    "xProd": "DM4270 48XS+6CX - Comutador Ethernet (Switch), com 48 portas 1G/10G (SFP+), 6 portas 40G ou 100G (QSFP+ ou QSFP28)",
+                    "NCM": "85176234",
+                    "CFOP": "6101",
+                    "uCom": "UN",
+                    "qCom": "1.0000",
+                    "vUnCom": "20389.4200000000",
+                    "vProd": "20389.42",
+                    "cEANTrib": "SEM GTIN",
+                    "cBarraTrib": "07895999094900",
+                    "uTrib": "UN",
+                    "qTrib": "1.0000",
+                    "vUnTrib": "20389.4200000000",
+                    "indTot": "1"
+                  },
+                  "imposto": {
+                    "vTotTrib": "36.34",
+                    "ICMS": {
+                      "ICMS00": {
+                        "orig": "4",
+                        "CST": "00",
+                        "modBC": "3",
+                        "vBC": "22377.39",
+                        "pICMS": "7.0000",
+                        "vICMS": "1566.42"
+                      }
+                    },
+                    "IPI": {
+                      "cEnq": "999",
+                      "IPITrib": {
+                        "CST": "50",
+                        "vBC": "20389.42",
+                        "pIPI": "9.7500",
+                        "vIPI": "1987.97"
+                      }
+                    },
+                    "PIS": {
+                      "PISAliq": {
+                        "CST": "01",
+                        "vBC": "18823.00",
+                        "pPIS": "1.6500",
+                        "vPIS": "310.58"
+                      }
+                    },
+                    "COFINS": {
+                      "COFINSAliq": {
+                        "CST": "01",
+                        "vBC": "18823.00",
+                        "pCOFINS": "7.6000",
+                        "vCOFINS": "1430.55"
+                      }
+                    }
+                  },
+                  "infAdProd": "FINAME: 3611178 N de Serie: 6142619",
+                  "_nItem": "4"
+                },
+                {
+                  "prod": {
+                    "cProd": "800.5215.53",
+                    "cEAN": "SEM GTIN",
+                    "cBarra": "07895999084789",
+                    "xProd": "PSU 400 DC-F - Fonte de alimentacao DC com entrada -48 a -60VDC, 400W de potencia",
+                    "NCM": "85044030",
+                    "CFOP": "6101",
+                    "uCom": "PC",
+                    "qCom": "2.0000",
+                    "vUnCom": "1534.5300000000",
+                    "vProd": "3069.06",
+                    "cEANTrib": "SEM GTIN",
+                    "cBarraTrib": "07895999084789",
+                    "uTrib": "PC",
+                    "qTrib": "2.0000",
+                    "vUnTrib": "1534.5300000000",
+                    "indTot": "1"
+                  },
+                  "imposto": {
+                    "vTotTrib": "38.16",
+                    "ICMS": {
+                      "ICMS00": {
+                        "orig": "4",
+                        "CST": "00",
+                        "modBC": "3",
+                        "vBC": "3529.42",
+                        "pICMS": "7.0000",
+                        "vICMS": "247.06"
+                      }
+                    },
+                    "IPI": {
+                      "cEnq": "999",
+                      "IPITrib": {
+                        "CST": "50",
+                        "vBC": "3069.06",
+                        "pIPI": "15.0000",
+                        "vIPI": "460.36"
+                      }
+                    },
+                    "PIS": {
+                      "PISAliq": {
+                        "CST": "01",
+                        "vBC": "2822.00",
+                        "pPIS": "1.6500",
+                        "vPIS": "46.56"
+                      }
+                    },
+                    "COFINS": {
+                      "COFINSAliq": {
+                        "CST": "01",
+                        "vBC": "2822.00",
+                        "pCOFINS": "7.6000",
+                        "vCOFINS": "214.47"
+                      }
+                    }
+                  },
+                  "infAdProd": "FINAME: 3602097 N de Serie: 6147663, 6147688",
+                  "_nItem": "5"
+                },
+                {
+                  "prod": {
+                    "cProd": "377.1403.00",
+                    "cEAN": "SEM GTIN",
+                    "cBarra": "07895999074391",
+                    "xProd": "Modulo otico tipo QSFP28, , [-/100G] [DD/VCSEL/-/OP:-8,4/RP:-10,3/0,1km] 100GBASE-SR4",
+                    "NCM": "85176259",
+                    "CFOP": "6101",
+                    "uCom": "PC",
+                    "qCom": "2.0000",
+                    "vUnCom": "278.8250000000",
+                    "vProd": "557.65",
+                    "cEANTrib": "SEM GTIN",
+                    "cBarraTrib": "07895999074391",
+                    "uTrib": "PC",
+                    "qTrib": "2.0000",
+                    "vUnTrib": "278.8250000000",
+                    "indTot": "1",
+                    "nFCI": "5748E49A-25DE-4437-A6B5-87A031BA4963"
+                  },
+                  "imposto": {
+                    "vTotTrib": "38.16",
+                    "ICMS": {
+                      "ICMS00": {
+                        "orig": "3",
+                        "CST": "00",
+                        "modBC": "3",
+                        "vBC": "641.30",
+                        "pICMS": "4.0000",
+                        "vICMS": "25.65"
+                      }
+                    },
+                    "IPI": {
+                      "cEnq": "999",
+                      "IPITrib": {
+                        "CST": "50",
+                        "vBC": "557.65",
+                        "pIPI": "15.0000",
+                        "vIPI": "83.65"
+                      }
+                    },
+                    "PIS": {
+                      "PISAliq": {
+                        "CST": "01",
+                        "vBC": "532.00",
+                        "pPIS": "1.6500",
+                        "vPIS": "8.78"
+                      }
+                    },
+                    "COFINS": {
+                      "COFINSAliq": {
+                        "CST": "01",
+                        "vBC": "532.00",
+                        "pCOFINS": "7.6000",
+                        "vCOFINS": "40.43"
+                      }
+                    }
+                  },
+                  "infAdProd": "N de Serie: 6041464, 6041582",
+                  "_nItem": "6"
+                },
+                {
+                  "prod": {
+                    "cProd": "800.5088.01",
+                    "cEAN": "SEM GTIN",
+                    "cBarra": "07895999052986",
+                    "xProd": "DM2301 4GT+4GX - Switch de Acesso Ethernet, com 4 portas 10/100/1000Base-T (RJ45)e 4 portas 100Base-FX/1000Base-X (SFP)",
+                    "NCM": "85176234",
+                    "CFOP": "6101",
+                    "uCom": "UN",
+                    "qCom": "2.0000",
+                    "vUnCom": "1083.2180000000",
+                    "vProd": "2166.44",
+                    "cEANTrib": "SEM GTIN",
+                    "cBarraTrib": "07895999052986",
+                    "uTrib": "UN",
+                    "qTrib": "2.0000",
+                    "vUnTrib": "1083.2180000000",
+                    "indTot": "1"
+                  },
+                  "imposto": {
+                    "vTotTrib": "36.34",
+                    "ICMS": {
+                      "ICMS00": {
+                        "orig": "4",
+                        "CST": "00",
+                        "modBC": "3",
+                        "vBC": "2377.67",
+                        "pICMS": "7.0000",
+                        "vICMS": "166.44"
+                      }
+                    },
+                    "IPI": {
+                      "cEnq": "999",
+                      "IPITrib": {
+                        "CST": "50",
+                        "vBC": "2166.44",
+                        "pIPI": "9.7500",
+                        "vIPI": "211.23"
+                      }
+                    },
+                    "PIS": {
+                      "PISAliq": {
+                        "CST": "01",
+                        "vBC": "2000.00",
+                        "pPIS": "1.6500",
+                        "vPIS": "33.00"
+                      }
+                    },
+                    "COFINS": {
+                      "COFINSAliq": {
+                        "CST": "01",
+                        "vBC": "2000.00",
+                        "pCOFINS": "7.6000",
+                        "vCOFINS": "152.00"
+                      }
+                    }
+                  },
+                  "infAdProd": "FINAME: 3253173 N de Serie: 6134388, 6134390",
+                  "_nItem": "7"
+                }
+              ],
+              "total": {
+                "ICMSTot": {
+                  "vBC": "74617.43",
+                  "vICMS": "5203.99",
+                  "vICMSDeson": "0.00",
+                  "vFCP": "0.00",
+                  "vBCST": "0.00",
+                  "vST": "0.00",
+                  "vFCPST": "0.00",
+                  "vFCPSTRet": "0.00",
+                  "vProd": "67342.99",
+                  "vFrete": "0.00",
+                  "vSeg": "0.00",
+                  "vDesc": "0.00",
+                  "vII": "0.00",
+                  "vIPI": "7274.44",
+                  "vIPIDevol": "0.00",
+                  "vPIS": "1025.30",
+                  "vCOFINS": "4722.56",
+                  "vOutro": "0.00",
+                  "vNF": "74617.43",
+                  "vTotTrib": "261.66"
+                }
+              },
+              "transp": {
+                "modFrete": "0",
+                "transporta": {
+                  "CNPJ": "94001641000104",
+                  "xNome": ".BRINGER DO BRASIL AGENC CARGAS NAC E INT LTDA",
+                  "IE": "1770165808",
+                  "xEnder": "AV CRUZEIRO",
+                  "xMun": "Cachoeirinha",
+                  "UF": "RS"
+                },
+                "vol": {
+                  "qVol": "4",
+                  "esp": "Volume (s)",
+                  "pesoL": "19.160",
+                  "pesoB": "26.380"
+                }
+              },
+              "cobr": {
+                "fat": {
+                  "nFat": "259813",
+                  "vOrig": "74617.43",
+                  "vDesc": "0.00",
+                  "vLiq": "74617.43"
+                },
+                "dup": [
+                  {
+                    "nDup": "001",
+                    "dVenc": "2023-10-23",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "002",
+                    "dVenc": "2023-11-20",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "003",
+                    "dVenc": "2023-12-20",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "004",
+                    "dVenc": "2024-01-19",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "005",
+                    "dVenc": "2024-02-19",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "006",
+                    "dVenc": "2024-03-19",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "007",
+                    "dVenc": "2024-04-18",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "008",
+                    "dVenc": "2024-05-20",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "009",
+                    "dVenc": "2024-06-17",
+                    "vDup": "7461.74"
+                  },
+                  {
+                    "nDup": "010",
+                    "dVenc": "2024-07-17",
+                    "vDup": "7461.77"
+                  }
+                ]
+              },
+              "pag": {
+                "detPag": {
+                  "tPag": "15",
+                  "vPag": "74617.43"
+                }
+              },
+              "infAdic": {
+                "infCpl": "Pedido gerado a partir da proposta nro 951423 Revisao E - PC Pedido de Compra: PRPT 951423 - Email 20/09 Pedido DATACOM: 230382 Garantia: 12 meses Local de entrega: AVE DAS NACOES , 2235. ST 004 QD 4 LT 16 - CENTRO - Ourilandia do Norte, PA - 68.390-000 Entrega em horario comercial Conforme PPB, regulado pela Lei 8.248/91 e Reconh. Nacional, regulada pela Port. 950/06 - Port. MCT n 3521 de 07/07/17 e Port. MCT/MDIC/MF n 825 de 14/12/01 Conforme PPB, regulado pela Lei 8.248/91 e Reconh. Nacional, regulada pela Port. 950/06 - Port. MCT n 3155 de 19/08/2020 e Port. MCT/MDIC/MF n 559 de 17/07/15 Conforme PPB, regulado pela Lei 8.248/91 - PPB - Port. MCT/MDIC/MF n 635 de 28/07/15 Conforme PPB, regulado pela Lei 8.248/91 - PPB - Port. MCT/MDIC/MF n s 825 de 14/12/01 Finalidade de Aquisicao: Consumidor Final Aliquota de 4% de ICMS conforme Resolucao do Senado Federal n 13/2012. MODAL: Aereo-redespacho Valor aproximado dos Tributos: R$ 261,66. Fonte IBPT/empresometro.com.br Versao 23.2.B."
+              },
+              "compra": {
+                "xPed": "PRPT 951423 - Email 20/09"
+              },
+              "_versao": "4.00",
+              "_Id": "NFe43230902820966000109550010002598131008073537"
             },
-            "_xmlns": "http://www.portalfiscal.inf.br/nfe",
+            "Signature": {
+              "SignedInfo": {
+                "CanonicalizationMethod": {
+                  "_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+                },
+                "SignatureMethod": {
+                  "_Algorithm": "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+                },
+                "Reference": {
+                  "Transforms": {
+                    "Transform": [
+                      {
+                        "_Algorithm": "http://www.w3.org/2000/09/xmldsig#enveloped-signature"
+                      },
+                      {
+                        "_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+                      }
+                    ]
+                  },
+                  "DigestMethod": {
+                    "_Algorithm": "http://www.w3.org/2000/09/xmldsig#sha1"
+                  },
+                  "DigestValue": "qrt78F4N4CH/EAZ7Gl1yztBhh8U=",
+                  "_URI": "#NFe43230902820966000109550010002598131008073537"
+                }
+              },
+              "SignatureValue": "tmBLnZ9SD66EQJxY5q/dJndJYMjOHOpYpU1z6+VXPFZ1IwHDY9Ym9XDqAlmnW50j/9Y2MdaKuk1mvHfQITa167v3Q2BBRtsMGMjVLP6fhQ0c2zN3tRUr88kBeCA8/OsIS/mdRpob/MklXsh2TXuat6MBgHm6YrL7jhnI9PPD4djfsJ2wbYlV1cmmL+1X/om+QqFhKl2Zp4fGyG2ubKI+OcVMfROkSjkJTqBfWp9hNQe7W2GEQTzaQMm2QNraMeHm+2cHHETSgQCFGdW2B0g0zR9ADPXYs5p0Z4zWzuPFO+hfNtGh7w/AzVvKqdvFI0L0ulo7p8hGUxH+6T9/eXFtOQ==",
+              "KeyInfo": {
+                "X509Data": {
+                  "X509Certificate": "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"
+                }
+              },
+              "_xmlns": "http://www.w3.org/2000/09/xmldsig#"
+            },
+            "_xmlns": "http://www.portalfiscal.inf.br/nfe"
+          },
+          "protNFe": {
+            "infProt": {
+              "tpAmb": "1",
+              "verAplic": "RS202308290810",
+              "chNFe": "43230902820966000109550010002598131008073537",
+              "dhRecbto": "2023-09-21T14:26:21-03:00",
+              "nProt": "143230216005501",
+              "digVal": "qrt78F4N4CH/EAZ7Gl1yztBhh8U=",
+              "cStat": "100",
+              "xMotivo": "Autorizado o uso da NF-e"
+            },
             "_versao": "4.00"
-          }
-        };
+          },
+          "_xmlns": "http://www.portalfiscal.inf.br/nfe",
+          "_versao": "4.00"
+        }
+      }
 
         // Preencher informações da tabela
         const tableBody = document.getElementById('tableBody');
@@ -472,6 +716,14 @@
 
             tableBody.appendChild(row);
         });
+
+        // Função para enviar dados ao servidor PHP
+        function saveToDatabase() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'salvarProd.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('invoiceData=' + encodeURIComponent(JSON.stringify(invoiceData)));
+        }
     </script>
 </body>
 </html>
