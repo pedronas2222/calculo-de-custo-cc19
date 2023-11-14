@@ -5,21 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nota Fiscal Detalhada</title>
 </head>
+<style>
+  table{
+    border-style: solid 1px #444;
+    border-collapse: collapse;
+    border-bottom: rgb(16, 142, 192);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  thead{
+    background-color: rgb(182, 177, 194);
+  }
+  tbody{
+    background-color: #e0e0e0;
+  }
+</style>
 <body>
     <table border="1">
         <thead>
             <tr>
+                <th>ITEM_PRODUTO</th>
+                <th>COD_PRODUTO</th>
                 <th>NUM_NOTA_FISCAL_ORIGEM</th>
                 <th>DATA_COMPRA</th>
                 <th>FORNECEDOR</th>
-                <th>ITEM_PRODUTO</th>
-                <th>COD_PRODUTO</th>
+                <th>CNPJ</th>
                 <th>DESC_PRODUTO</th>
                 <th>UN_PRODUTO</th>
                 <th>VAL_UNI_PRODUTO</th>
                 <th>QUANT_PRODUTO</th>
                 <th>ALIQ_NF_ORIGEM_PRODUTO</th>
                 <th>VALOR_ICMS_ORIGEM</th>
+                <th>VALOR_IPI_ORIGEM</th>
                 <th>VALOR_ICMS_PARA</th>
                 <th>VALOR_A_PAGAR_DIF_ICMS</th>
                 <th>CUSTO_TRANSPORTE</th>
@@ -29,9 +45,51 @@
         <tbody id="tableBody"></tbody>
     </table>
 
-    <button onclick="saveToDatabase()">Salvar no Banco de Dados</button>
+    <button onclick="enviarDados()">Salvar no Banco de Dados</button>
 
     <script>
+
+        // Função para enviar dados para o PHP
+        function enviarDados() {
+            const tableRows = document.querySelectorAll('#tableBody tr');
+
+            // Array para armazenar os dados da tabela
+            const tableData = [];
+
+            // Loop através das linhas da tabela
+            tableRows.forEach((row) => {
+                const rowData = [];
+                // Loop através das células da linha
+                row.querySelectorAll('td').forEach((cell) => {
+                    rowData.push(cell.textContent);
+                });
+                // Adiciona os dados da linha ao array
+                tableData.push(rowData);
+            });
+
+            // Cria um formulário dinamicamente
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = 'salvarProd.php';
+
+            // Cria um input hidden para armazenar os dados da tabela
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'tableData';
+            input.value = JSON.stringify(tableData);
+
+            // Adiciona o input ao formulário
+            form.appendChild(input);
+
+            // Adiciona o formulário ao corpo do documento
+            document.body.appendChild(form);
+
+            // Submete o formulário
+            form.submit();
+        }
+
+        // ... Seu código para preencher a tabela permanece o mesmo ...
+
         const invoiceData = {
         "nfeProc": {
           "NFe": {
@@ -693,37 +751,40 @@
         const tableBody = document.getElementById('tableBody');
         invoiceData.nfeProc.NFe.infNFe.det.forEach((det, index) => {
             const produto = det.prod;
-            const imposto = det.imposto.ICMS.ICMS00;
+            const impostoICMS = det.imposto.ICMS.ICMS00;
+            const impostoIPI = det.imposto.IPI.IPITrib;
 
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${produto.cProd}</td>
                 <td>${invoiceData.nfeProc.NFe.infNFe.ide.nNF}</td>
                 <td>${invoiceData.nfeProc.NFe.infNFe.ide.dhEmi}</td>
                 <td>${invoiceData.nfeProc.NFe.infNFe.emit.xNome}</td>
-                <td>${index + 1}</td>
-                <td>${produto.cProd}</td>
+                <td>${invoiceData.nfeProc.NFe.infNFe.emit.CNPJ}</td>
                 <td>${produto.xProd}</td>
                 <td>${produto.uCom}</td>
                 <td>${produto.vUnCom}</td>
                 <td>${produto.qCom}</td>
-                <td>${imposto.pICMS}</td>
-                <td>${imposto.vICMS}</td>
+                <td>${impostoICMS.pICMS}</td>
+                <td>${impostoICMS.vICMS}</td>
+                <td>${impostoIPI.vIPI}</td>
                 <td>${produto.vProd * 0.19}</td>
-                <td>${imposto.vICMS - (produto.vProd * 0.19)}</td>
-                <td>Calcular</td>
-                <td>Calcular</td>
+                <td>${impostoICMS.vICMS - (produto.vProd * 0.19)}</td>
+                <td>Calcular TRANSP</td>
+                <td>R$ ${impostoIPI.vIPI / produto.qCom}</td>
             `;
 
             tableBody.appendChild(row);
         });
 
         // Função para enviar dados ao servidor PHP
-        function saveToDatabase() {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'salvarProd.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('invoiceData=' + encodeURIComponent(JSON.stringify(invoiceData)));
-        }
+        // function saveToDatabase() {
+        //     const xhr = new XMLHttpRequest();
+        //     xhr.open('POST', 'salvarProd.php', true);
+        //     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        //     xhr.send('invoiceData=' + encodeURIComponent(JSON.stringify(invoiceData)));
+        // }
     </script>
 </body>
 </html>
