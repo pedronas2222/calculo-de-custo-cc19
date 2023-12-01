@@ -1,9 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XML to JSON Converter</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        td {
+            cursor: pointer;
+        }
+
+        td.editing {
+            background-color: #e6f7ff;
+        }
+    </style>    
 </head>
 <body>
     <h1>XML to JSON Converter</h1>
@@ -39,6 +117,198 @@
                 jsonResult.textContent = 'Please select an XML file.';
             }
         }
+
+        var total = 557.65 * (19/100);
+        console.log(total);
+        //document.getElementById("calculo").innerHTML = impostoOR;
+
+
+
+
+
+
+function adicionarProduto() {
+    // Obtenha os valores do formulário
+    const codigoProduto = document.getElementById('codigoProduto').value;
+    const numeroNF = document.getElementById('numeroNF').value;
+    const valor = document.getElementById('valor').value;
+
+    // Adicione os valores à tabela
+    const tabela = document.getElementById('tabelaProdutos');
+    const dadosTabela = document.getElementById('dadosTabela');
+    
+    const newRow = dadosTabela.insertRow();
+
+    // Adicione células clicáveis e editáveis
+    for (let i = 0; i < tabela.rows[0].cells.length; i++) {
+        const cell = newRow.insertCell(i);
+        cell.innerHTML = i === 0 ? codigoProduto : i === 1 ? numeroNF : '' ? valor : '';
+        cell.setAttribute('contenteditable', 'true'); // Torna a célula editável
+        cell.addEventListener('click', () => editarCelula(cell));
+    }
+
+    // Limpe o formulário após a adição
+    document.getElementById('produtoForm').reset();
+}
+
+function editarCelula(cell) {
+    // Adicione lógica para editar a célula clicada, se necessário
+    console.log('Célula clicada:', cell.innerHTML);
+}
+
+
+
+function criarJSON() {
+    const tabela = document.getElementById('tabelaProdutos');
+    const dadosTabela = document.getElementById('dadosTabela');
+    const colunas = ['Cód. Produto', 'Núm. NF', 'Data Compra', 'Descrição do Produto', 'Unid.', 'Valor Unitário', 'Qtd', 'Aliq. ICMS (OR)', 'Valor ICMS (OR)', 'Valor IPI (OR)', 'Valor ICMS (PA)', 'Valor DIFAL', 'Valor Frete', 'Custo Total'];
+    const produtos = [];
+
+    // Percorre as linhas da tabela (começa em 1 para evitar a linha de cabeçalho)
+    for (let i = 1; i < tabela.rows.length; i++) {
+        const produto = {};
+
+        // Percorre as células da linha
+        for (let j = 0; j < tabela.rows[i].cells.length; j++) {
+            const nomeColuna = colunas[j]; // Nome da coluna
+
+            // Adiciona os valores ao objeto JSON usando o nome da coluna
+            produto[nomeColuna] = tabela.rows[i].cells[j].innerText;
+        }
+
+        // Adiciona o produto à lista de produtos
+        produtos.push(produto);
+    }
+
+    // Converte a lista de produtos em uma string JSON
+    const jsonProdutos = JSON.stringify(produtos, null, 2);
+
+    // Exibe o JSON no console (você pode fazer o que quiser com ele a partir daqui)
+    console.log(jsonProdutos);
+}
+
+
+
+
+
+// calculando o DIFAL, com imposto por dentro
+
+// ICMS Origem: 12%
+// ICMS Destino: 18%
+// Valor total: 100
+
+// Base de Calculo operação propria
+// 100 / (1 - 0,18)
+// 100 / 0,82 = 121,95
+
+
+// ICMS da operação propria
+// 121,95 * 12% = 14,63
+
+
+// para pegar o DIFAL
+// 100 / (1 - 0,18)
+// 100 / 0,82 = 121,95
+
+// ICMS DIFAL
+// 121,95 * 18% = 21,95
+// 21,95 - 14,63 = 7,32
+
+
+
+
+let valorBc = 34342.98;  // valor em BRL do total dos protudos
+let icmsSP = 7;    // % UF  de origem
+let icmsPA = 19;    // % UF de destino
+let imposto = 100 - 19; // descobrindo o valor de divisão do total pelo imposto 
+var valor = valorBc  / 0.81;
+var valorSoma = valor - valorBc;
+
+
+let  icmsOrigem = valor * (7 / 100);
+let  icmsDestino = valor * (19 / 100);
+let DIFAL = icmsDestino - icmsOrigem;
+
+
+
+console.log('Valor Base de calculo: ' + valor);
+console.log('Valor Soma: ' + valorSoma);
+console.log('ICMS DIFAL OR: ' + icmsOrigem);
+console.log('ICMS DIFAL DST: ' + icmsDestino);
+console.log('VALOR DIFAL: ' + DIFAL);
+
+
+function calcularDifal(valorTotal, icmsOrigem, icmsDestino) {
+    // Base de Cálculo operação própria
+    const baseCalculoOperacaoPropria = valorTotal / (1 - icmsDestino);
+
+    // ICMS da operação própria
+    const icmsOperacaoPropria = baseCalculoOperacaoPropria * icmsOrigem;
+
+    // Base de Cálculo DIFAL
+    const baseCalculoDifal = valorTotal / (1 - icmsDestino);
+
+    // ICMS DIFAL
+    const icmsDifal = baseCalculoDifal * icmsDestino;
+
+    // DIFAL
+    const difal = icmsDifal - icmsOperacaoPropria;
+
+    return difal.toFixed(2); // Arredonda para duas casas decimais
+}
+
+// Exemplo de uso:
+const difalCalculado = calcularDifal(3069.06, 0.7, 0.19);
+console.log("DIFAL Calculado:", difalCalculado);
+
+
+
+
+
+
+
+
+// document.getElementById("difal").innerHTML = valorDIFAL;
     </script>
+
+    <div id="calculo"></div>
+
+        <h2>Formulário de Produto</h2>
+        <button type="button" onclick="criarJSON()">Criar JSON</button>
+        <button onclick="calcularDifal()">Calcular DIFAL</button>
+
+        <div id="difal"></div>
+
+        <form id="produtoForm">
+            <label for="codigoProduto">Cód. Produto:</label>
+            <input type="text" id="codigoProduto" required><br>
+    
+            <label for="numeroNF">Núm. NF:</label>
+            <input type="text" id="numeroNF" required><br>
+
+            <label for="numeroNF">Valor (R$)</label>
+            <input type="text" id="valor" required><br>
+    
+            <!-- Adicione outros campos conforme necessário -->
+    
+            <button type="button" onclick="adicionarProduto()">Adicionar Produto</button>
+        </form>
+    
+        <h2>Tabela de Produtos</h2>
+        <table id="tabelaProdutos" border="1">
+            <thead>
+                <tr>
+                    <th>Cód. Produto</th>
+                    <th>Núm. NF</th>
+                    <th>Valor</th>
+                    <!-- Adicione outras colunas conforme necessário -->
+                </tr>
+            </thead>
+            <tbody id="dadosTabela">
+                <!-- Os dados da tabela serão inseridos aqui -->
+            </tbody>
+        </table>
+
+    
 </body>
 </html>

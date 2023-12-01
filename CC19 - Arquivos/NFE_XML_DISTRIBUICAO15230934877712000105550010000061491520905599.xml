@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nfeProc
+	xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+	<NFe
+		xmlns="http://www.portalfiscal.inf.br/nfe">
+		<infNFe Id="NFe15230934877712000105550010000061491520905599" versao="4.00">
+			<ide>
+				<cUF>15</cUF>
+				<cNF>52090559</cNF>
+				<natOp>Venda de mercadoria adquirida ou recebida de terceiros</natOp>
+				<mod>55</mod>
+				<serie>1</serie>
+				<nNF>6149</nNF>
+				<dhEmi>2023-09-28T10:09:54-03:00</dhEmi>
+				<dhSaiEnt>2023-09-28T10:09:54-03:00</dhSaiEnt>
+				<tpNF>1</tpNF>
+				<idDest>1</idDest>
+				<cMunFG>1505437</cMunFG>
+				<tpImp>1</tpImp>
+				<tpEmis>1</tpEmis>
+				<cDV>9</cDV>
+				<tpAmb>1</tpAmb>
+				<finNFe>1</finNFe>
+				<indFinal>1</indFinal>
+				<indPres>1</indPres>
+				<procEmi>0</procEmi>
+				<verProc>3.2.0.21</verProc>
+			</ide>
+			<emit>
+				<CNPJ>34877712000105</CNPJ>
+				<xNome>CONSTRULANDIA MATERIAIS PARA CONSTRUCAO LTDA</xNome>
+				<xFant>CONSTRULANDIA MATERIAIS PARA CONSTRUCAO</xFant>
+				<enderEmit>
+					<xLgr>AVENIDA DAS NACOES</xLgr>
+					<nro>1805</nro>
+					<xBairro>CENTRO</xBairro>
+					<cMun>1505437</cMun>
+					<xMun>OURILANDIA DO NORTE</xMun>
+					<UF>PA</UF>
+					<CEP>68390000</CEP>
+					<cPais>1058</cPais>
+					<xPais>Brasil</xPais>
+					<fone>9434341121</fone>
+				</enderEmit>
+				<IE>151531528</IE>
+				<CRT>3</CRT>
+			</emit>
+			<dest>
+				<CNPJ>14429925000167</CNPJ>
+				<xNome>ISP MAIS TELECOM LTDA</xNome>
+				<enderDest>
+					<xLgr>AVENIDA DAS NACOES</xLgr>
+					<nro>2235</nro>
+					<xBairro>CENTRO</xBairro>
+					<cMun>1505437</cMun>
+					<xMun>OURILANDIA DO NORTE</xMun>
+					<UF>PA</UF>
+					<CEP>68390000</CEP>
+					<cPais>1058</cPais>
+					<xPais>BRASIL</xPais>
+					<fone>9434342444</fone>
+				</enderDest>
+				<indIEDest>1</indIEDest>
+				<IE>153507900</IE>
+				<email>financeiro@ispmais.com;agda@ispmais.com</email>
+			</dest>
+			<det nItem="1">
+				<prod>
+					<cProd>3194</cProd>
+					<cEAN>7898059542762</cEAN>
+					<xProd>CAIXA SIFONADA N63 GR BRANCA QD 100 X 100 X 50 259</xProd>
+					<NCM>39174090</NCM>
+					<CEST>1000600</CEST>
+					<indEscala>S</indEscala>
+					<cBenef>0000000000</cBenef>
+					<CFOP>5405</CFOP>
+					<uCom>UN</uCom>
+					<qCom>1.0000</qCom>
+					<vUnCom>23</vUnCom>
+					<vProd>23.00</vProd>
+					<cEANTrib>7898059542762</cEANTrib>
+					<uTrib>UN</uTrib>
+					<qTrib>1.0000</qTrib>
+					<vUnTrib>23</vUnTrib>
+					<indTot>1</indTot>
+					<nItemPed>0</nItemPed>
+				</prod>
+				<imposto>
+					<vTotTrib>7.38</vTotTrib>
+					<ICMS>
+						<ICMS60>
+							<orig>0</orig>
+							<CST>60</CST>
+							<vBCSTRet>0.00</vBCSTRet>
+							<pST>0.00</pST>
+							<vICMSSubstituto>0.00</vICMSSubstituto>
+							<vICMSSTRet>0.00</vICMSSTRet>
+						</ICMS60>
+					</ICMS>
+					<IPI>
+						<cEnq>999</cEnq>
+						<IPINT>
+							<CST>53</CST>
+						</IPINT>
+					</IPI>
+					<PIS>
+						<PISAliq>
+							<CST>01</CST>
+							<vBC>23.00</vBC>
+							<pPIS>1.6500</pPIS>
+							<vPIS>0.38</vPIS>
+						</PISAliq>
+					</PIS>
+					<COFINS>
+						<COFINSAliq>
+							<CST>01</CST>
+							<vBC>23.00</vBC>
+							<pCOFINS>7.6000</pCOFINS>
+							<vCOFINS>1.75</vCOFINS>
+						</COFINSAliq>
+					</COFINS>
+				</imposto>
+			</det>
+			<det nItem="2">
+				<prod>
+					<cProd>6477</cProd>
+					<cEAN>7899625001850</cEAN>
+					<xProd>BOTINA SEG STAR FIRE BICO PVC 0.6002</xProd>
+					<NCM>64039190</NCM>
+					<cBenef>0000000000</cBenef>
+					<CFOP>5102</CFOP>
+					<uCom>PR</uCom>
+					<qCom>3.0000</qCom>
+					<vUnCom>106</vUnCom>
+					<vProd>318.00</vProd>
+					<cEANTrib>7899625001850</cEANTrib>
+					<uTrib>PR</uTrib>
+					<qTrib>3.0000</qTrib>
+					<vUnTrib>106</vUnTrib>
+					<indTot>1</indTot>
+					<nItemPed>0</nItemPed>
+				</prod>
+				<imposto>
+					<ICMS>
+						<ICMS00>
+							<orig>0</orig>
+							<CST>00</CST>
+							<modBC>3</modBC>
+							<vBC>318.00</vBC>
+							<pICMS>19.0000</pICMS>
+							<vICMS>60.42</vICMS>
+						</ICMS00>
+					</ICMS>
+					<IPI>
+						<cEnq>999</cEnq>
+						<IPINT>
+							<CST>53</CST>
+						</IPINT>
+					</IPI>
+					<PIS>
+						<PISAliq>
+							<CST>01</CST>
+							<vBC>318.00</vBC>
+							<pPIS>1.6500</pPIS>
+							<vPIS>5.25</vPIS>
+						</PISAliq>
+					</PIS>
+					<COFINS>
+						<COFINSAliq>
+							<CST>01</CST>
+							<vBC>318.00</vBC>
+							<pCOFINS>7.6000</pCOFINS>
+							<vCOFINS>24.17</vCOFINS>
+						</COFINSAliq>
+					</COFINS>
+				</imposto>
+			</det>
+			<total>
+				<ICMSTot>
+					<vBC>318.00</vBC>
+					<vICMS>60.42</vICMS>
+					<vICMSDeson>0.00</vICMSDeson>
+					<vFCP>0.00</vFCP>
+					<vBCST>0.00</vBCST>
+					<vST>0.00</vST>
+					<vFCPST>0.00</vFCPST>
+					<vFCPSTRet>0.00</vFCPSTRet>
+					<vProd>341.00</vProd>
+					<vFrete>0.00</vFrete>
+					<vSeg>0.00</vSeg>
+					<vDesc>0.00</vDesc>
+					<vII>0.00</vII>
+					<vIPI>0.00</vIPI>
+					<vIPIDevol>0.00</vIPIDevol>
+					<vPIS>5.63</vPIS>
+					<vCOFINS>25.92</vCOFINS>
+					<vOutro>0.00</vOutro>
+					<vNF>341.00</vNF>
+					<vTotTrib>7.38</vTotTrib>
+				</ICMSTot>
+			</total>
+			<transp>
+				<modFrete>0</modFrete>
+				<transporta>
+					<xNome>PROPRIA</xNome>
+					<xMun>OURILANDIA DO NORTE</xMun>
+					<UF>PA</UF>
+				</transporta>
+				<vol>
+					<qVol>4</qVol>
+					<nVol>0</nVol>
+				</vol>
+			</transp>
+			<cobr>
+				<fat>
+					<nFat>6149</nFat>
+					<vOrig>341.00</vOrig>
+					<vDesc>0.00</vDesc>
+					<vLiq>341.00</vLiq>
+				</fat>
+				<dup>
+					<nDup>001</nDup>
+					<dVenc>2023-09-28</dVenc>
+					<vDup>341.00</vDup>
+				</dup>
+			</cobr>
+			<pag>
+				<detPag>
+					<indPag>0</indPag>
+					<tPag>01</tPag>
+					<vPag>341.00</vPag>
+				</detPag>
+			</pag>
+			<infAdic>
+				<infCpl>Val aprox trib 7,38(2,16%) Fonte:IBPT DADOS PARA PAGAMENTO AG 1686 CC 3846-6 BARDESCO// Plano pag.: A VISTA Usuario ERP NORTESYS: ISABELA Vendedor : LUIZ</infCpl>
+			</infAdic>
+			<infRespTec>
+				<CNPJ>15381712000175</CNPJ>
+				<xContato>NORTESYS SOLUCOES EM TECNOLOGIA</xContato>
+				<email>faleconosco@nortesys.com.br</email>
+				<fone>06333217300</fone>
+			</infRespTec>
+		</infNFe>
+		<Signature
+			xmlns="http://www.w3.org/2000/09/xmldsig#">
+			<SignedInfo>
+				<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+				<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+				<Reference URI="#NFe15230934877712000105550010000061491520905599">
+					<Transforms>
+						<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+						<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+					</Transforms>
+					<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+					<DigestValue>lGdxujlxbUtfKk4tL+Ht9ySFoQI=</DigestValue>
+				</Reference>
+			</SignedInfo>
+			<SignatureValue>fGnGFWhQswJyBKi4I5lkG5phYUSByZVsg4frlt73NvtWl2cmPEHdOvgmLWAWv2ihqV7wv7KB4s3aJg5Bqsa3Q5dhR+BBp5x3q9QO3Emd3cC+VgPHYBUCLt3ikrj1yhF1Aah595sNJfzS05UpUAB3Yolkud7n+eGT36E+TMx7QZm/PwHcL8T337Ht3K7X4DTwPepK77MFu6iADROXC9d1KRhUNzpQdsGS52Z4S/Ao17TKl+ik+loaK7GJK/SQWt3dt4wnAYVh4NJcgA0YnqWLyVc3G/VxnYCvmCZLHtnleG8/S53t1hEZIgCGMdyuXwtJZxwc1wsYl6H/PIw5TYOrCQ==</SignatureValue>
+			<KeyInfo>
+				<X509Data>
+					<X509Certificate>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</X509Certificate>
+				</X509Data>
+			</KeyInfo>
+		</Signature>
+	</NFe>
+	<protNFe versao="4.00">
+		<infProt
+			xmlns="http://www.portalfiscal.inf.br/nfe">
+			<tpAmb>1</tpAmb>
+			<verAplic>SVRS202309211504</verAplic>
+			<chNFe>15230934877712000105550010000061491520905599</chNFe>
+			<dhRecbto>2023-09-28T10:10:04-03:00</dhRecbto>
+			<nProt>315230041286477</nProt>
+			<digVal>lGdxujlxbUtfKk4tL+Ht9ySFoQI=</digVal>
+			<cStat>100</cStat>
+			<xMotivo>Autorizado o uso da NF-e</xMotivo>
+		</infProt>
+	</protNFe>
+</nfeProc>
